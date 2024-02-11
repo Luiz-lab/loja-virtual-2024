@@ -1,2 +1,2 @@
-# loja-virtual-2024
+# loja virtual 
 Loja Virtual em Spring
