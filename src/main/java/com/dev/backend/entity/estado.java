@@ -12,10 +12,10 @@ import jakarta.persistence.TemporalType;
 @Entity
 @Table(name = "estado")
 @lombok.Data
-public class estado {
+public class Estado {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String name;
