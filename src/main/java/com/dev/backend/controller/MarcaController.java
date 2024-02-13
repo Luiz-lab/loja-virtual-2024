@@ -23,6 +23,7 @@ public class MarcaController {
     @Autowired
     private MarcaService marcaService;  
 
+    @SuppressWarnings("rawtypes")
     @GetMapping("/")
     public List findAll() {
         return marcaService.findAll();

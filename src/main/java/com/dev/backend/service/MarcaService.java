@@ -30,6 +30,7 @@ public class MarcaService {
         return marcaRepository.findAll();
     }
 
+    @SuppressWarnings("null")
     public void delete(Long id){
         Marca marca = marcaRepository.findById(id).get();
         marcaRepository.delete(marca);

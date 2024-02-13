@@ -23,6 +23,7 @@ public class CategoriaController {
     @Autowired
     private CategoriaService categoriaService;  
 
+    @SuppressWarnings("rawtypes")
     @GetMapping("/")
     public List findAll() {
         return categoriaService.findAll();

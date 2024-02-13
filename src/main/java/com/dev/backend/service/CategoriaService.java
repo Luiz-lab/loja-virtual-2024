@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 import com.dev.backend.entity.Categoria;
 import com.dev.backend.repository.CategoriaRepository;
 
-import jakarta.persistence.Entity;
-
 @Service
 public class CategoriaService {
     

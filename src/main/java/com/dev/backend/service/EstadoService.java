@@ -25,6 +25,7 @@ public class EstadoService {
         return estadoRepository.saveAndFlush(estado);
     }
 
+    @SuppressWarnings("null")
     public void delete(Long id) {
         Estado estado = estadoRepository.findById(id).get();
         estadoRepository.delete(estado);
