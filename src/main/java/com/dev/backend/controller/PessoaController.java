@@ -13,35 +13,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dev.backend.entity.Categoria;
-import com.dev.backend.service.CategoriaService;
+import com.dev.backend.entity.Marca;
+import com.dev.backend.entity.Pessoa;
+import com.dev.backend.service.MarcaService;
+import com.dev.backend.service.PessoaService;
 
 @RestController
-@RequestMapping("/api/categoria")
-public class CategoriaController {
+@RequestMapping("/api/pessoa")
+public class PessoaController {
     
     @Autowired
-    private CategoriaService categoriaService;  
+    private PessoaService pessoaService;  
 
     @SuppressWarnings("rawtypes")
     @GetMapping("/")
     public List findAll() {
-        return categoriaService.findAll();
+        return pessoaService.findAll();
     }
 
     @PostMapping("/")
-    public Categoria insert(@RequestBody Categoria categoria) {        
-        return categoriaService.insert(categoria);
+    public Pessoa insert(@RequestBody Pessoa pessoa) {        
+        return pessoaService.insertName(pessoa);
     }
 
     @PutMapping("/")
-    public Categoria update(@RequestBody Categoria categoria ) {
-        return categoriaService.update(categoria);
+    public Pessoa update(@RequestBody Pessoa pessoa ) {
+        return pessoaService.updateName(pessoa);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity <Void> delete(@PathVariable("id") Long id){
-        categoriaService.delete(id);
+        pessoaService.deleteName(id);
         return ResponseEntity.ok().build();
     }
+
+
 }
