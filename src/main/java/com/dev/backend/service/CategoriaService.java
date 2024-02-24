@@ -29,7 +29,9 @@ public class CategoriaService {
         return categoriaRepository.findAll();
     }
 
+    @SuppressWarnings("null")
     public void delete(Long id){
+        @SuppressWarnings("null")
         Categoria categoria = categoriaRepository.findById(id).get();
         categoriaRepository.delete(categoria); 
     }
