@@ -6,44 +6,45 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dev.backend.entity.Pessoa;
-import com.dev.backend.service.PessoaService;
+import com.dev.backend.entity.Permissao;
+import com.dev.backend.service.PermissaoService;
+
+
+
 
 @RestController
-@RequestMapping("/api/pessoa")
-public class PessoaController {
-    
-    @Autowired
-    private PessoaService pessoaService;  
+@RequestMapping("/api/permissao")
+public class PermissaoController {
 
-    @SuppressWarnings("rawtypes")
+    @Autowired
+    private PermissaoService permissaoService;
+
     @GetMapping("/")
-    public List findAll() {
-        return pessoaService.findAll();
+    public List<Permissao> findAllPermissao() {
+        return permissaoService.findAllPermissaos();
     }
 
     @PostMapping("/")
-    public Pessoa insert(@RequestBody Pessoa pessoa) {        
-        return pessoaService.insertName(pessoa);
+    public Permissao insertPermissao(@RequestBody Permissao permissao) {
+        return permissaoService.insertPermissao(permissao);
     }
-
+    
     @PutMapping("/")
-    public Pessoa update(@RequestBody Pessoa pessoa ) {
-        return pessoaService.updateName(pessoa);
+    public Permissao updPermissao(@RequestBody Permissao permissao) {
+        return permissaoService.updatePermissao(permissao);
     }
-
+    
     @DeleteMapping("/{id}")
-    public ResponseEntity <Void> delete(@PathVariable("id") Long id){
-        pessoaService.deleteName(id);
+    public ResponseEntity<Void> deletePermissao(@RequestParam("id") Long Id){
+        permissaoService.deletePermissao(Id);
         return ResponseEntity.ok().build();
     }
-
-
+    
 }

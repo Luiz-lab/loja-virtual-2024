@@ -29,7 +29,9 @@ public class ProdutoService {
         return produtoRepository.findAll();
     }
 
+    @SuppressWarnings("null")
     public void deleteProduto(Long id){
+        @SuppressWarnings("null")
         Produto produto = produtoRepository.findById(id).get();
         produtoRepository.delete(produto);
     }

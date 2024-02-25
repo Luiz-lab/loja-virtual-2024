@@ -6,21 +6,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "estado")
+@Table (name = "imagemProduto")
 @lombok.Data
-public class Estado {
-
+public class ProdutoImagem {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Long Id;
 
-    private String name;
-    private String resumeId; 
+    private String name ;
+
+    @ManyToOne
+    @JoinColumn(name="idProduto" )
+    private Produto produto;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;

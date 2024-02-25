@@ -11,21 +11,21 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "estado")
+@Table(name = "permissao")
 @lombok.Data
-public class Estado {
-
+public class Permissao {
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long Id;
 
-    private String name;
-    private String resumeId; 
+    private String name ;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataUpdate;
+
 
 }
